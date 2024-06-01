@@ -23,12 +23,12 @@ where ``path/to/your/json/config`` is the path to your configuration file.
 ## Citation
 
 ```text
-@article{rolinek2020deep,
-    title={Deep Graph Matching via Blackbox Differentiation of Combinatorial Solvers},
-    author={Michal Rolínek and Paul Swoboda and Dominik Zietlow and Anselm Paulus and Vít Musil and Georg Martius},
-    year={2020},
-    eprint={2003.11657},
-    archivePrefix={arXiv},
-    primaryClass={cs.LG}
-}
+@article{tourani2024clum_aaai,
+title={Discrete Cycle-Consistency Based Unsupervised Deep Graph Matching},
+volume={38},
+url={https://ojs.aaai.org/index.php/AAAI/article/view/28332},
+DOI={10.1609/aaai.v38i6.28332},
+number={6},
+journal={Proceedings of the AAAI Conference on Artificial Intelligence},
+author={Tourani, Siddharth and Khan, Muhammad Haris and Rother, Carsten and Savchynskyy, Bogdan}, year={2024}, month={Mar.}, pages={5252-5260} }
 ```
