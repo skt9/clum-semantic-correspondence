@@ -1,4 +1,3 @@
-#   Taken from Deep Blackbox Graph Matching: https://github.com/martius-lab/blackbox-deep-graph-matching.
 from abc import ABC, abstractmethod
 from functools import update_wrapper, partial
 

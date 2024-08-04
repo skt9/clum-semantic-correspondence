@@ -1,17 +1,10 @@
-#   Taken from Deep Blackbox Graph Matching: https://github.com/martius-lab/blackbox-deep-graph-matching.
 import torch.nn as nn
 from torchvision import models
-import math
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-from torch import Tensor
-import numpy as np
-from typing import Optional, Tuple
 
-class VGG16(nn.Module):
+
+class VGG16_base(nn.Module):
     def __init__(self, batch_norm=True):
-        super(VGG16, self).__init__()
+        super(VGG16_base, self).__init__()
         self.node_layers, self.edge_layers, self.final_layers = self.get_backbone(batch_norm)
 
     def forward(self, *input):
@@ -58,6 +51,7 @@ class VGG16(nn.Module):
 
         return node_layers, edge_layers, final_layers
 
-class VGG16_bn(VGG16):
+
+class VGG16_bn(VGG16_base):
     def __init__(self):
         super(VGG16_bn, self).__init__(True)

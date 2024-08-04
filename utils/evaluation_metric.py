@@ -1,4 +1,3 @@
-#   Taken from Deep Blackbox Graph Matching: https://github.com/martius-lab/blackbox-deep-graph-matching.
 import torch
 
 

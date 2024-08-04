@@ -1,4 +1,3 @@
-#   Taken from Deep Blackbox Graph Matching: https://github.com/martius-lab/blackbox-deep-graph-matching.
 import torch
 from torch import Tensor
 
@@ -7,8 +6,8 @@ def feature_align(raw_feature: Tensor, P: Tensor, ns_t: Tensor, ori_size: tuple,
     """
     Perform feature align from the raw feature map.
     :param raw_feature: raw feature map
-    :param P: point set containing point coordinates
-    :param ns_t: number of exact points in the point set
+    :param P: point set containing point coordinates            #   point set containing point coordinates
+    :param ns_t: number of exact points in the point set        #   number of exact points in the point set
     :param ori_size: size of the original image
     :param device: device. If not specified, it will be the same as the input
     :return: F
@@ -18,7 +17,7 @@ def feature_align(raw_feature: Tensor, P: Tensor, ns_t: Tensor, ori_size: tuple,
         device = raw_feature.device
 
     f_dim = raw_feature.shape[-1]
-    ori_size_t = torch.tensor(ori_size, dtype=torch.float32, device=device)
+    ori_size_t = torch.tensor(ori_size, dtype=torch.float32, device=device)     #   Generate a torch.tensor of original size
     step = ori_size_t[0] / f_dim
 
     channel_num = raw_feature.shape[1]
@@ -39,10 +38,10 @@ def feature_align(raw_feature: Tensor, P: Tensor, ns_t: Tensor, ori_size: tuple,
     raw_features_flat = raw_feature.flatten(2, 3)
 
     # mask to disregard information in keypoints that don't matter (meaning that for the given image the number of keypoints is smaller than the maximum number in the batch)
-    mask = torch.zeros(bs, n_max, device=device)
+    mask1 = torch.zeros(bs, n_max, device=device)
     for i in range(bs):
-        mask[i][0 : ns_t[i]] = 1
-    mask = mask.unsqueeze(1).expand(bs, channel_num, n_max)
+        mask1[i][0 : ns_t[i]] = 1
+    mask = mask1.unsqueeze(1).expand(bs, channel_num, n_max)
 
     raw_f_exp = raw_features_flat.unsqueeze(0).expand(4, bs, channel_num, f_dim ** 2)
     p_flat_exp = p_shifted_flat.unsqueeze(2).expand(4, bs, channel_num, n_max).long()
