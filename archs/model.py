@@ -63,7 +63,7 @@ class SupervisedNet(utils.backbone.VGG16_bn):
         self.self_attention =  nn.MultiheadAttention(1024, num_heads=2, dropout=0.2)
         self.cross_attention =  nn.MultiheadAttention(1024, num_heads=2, dropout=0.2)
 
-        self.solver_mode = "lap"
+        self.solver_mode = "qap"
         self.solver_params = {'lambda':70,'costMargin':1.0}
         if self.solver_mode == "lap":
             self.solver = LAPSolverModule(self.solver_params)
